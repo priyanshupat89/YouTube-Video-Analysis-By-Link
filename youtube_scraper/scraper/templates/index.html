@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/img/youtube.png" type="">
+    <title>YouTube | Video URL Analysis</title>
+
+    <!-- Bootstrap CSS (optional, can be removed if not needed) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/css/index.css" rel="stylesheet">
+</head>
+
+<video
+    autoplay
+    muted
+    loop
+    id="background-video"
+    src="../static/img/ww.mp4"
+    type="video/mp4"
+  >
+</video>
+<body>
+
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand"><img width="90" src="../static/img/youtube.png"/>YouTube Analysis</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="welcome.html"><b>Home</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html"><b>Index</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="result.html"><b>Result</b></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Main Content -->
+    <div class="container"><br>
+        <h1 class="text-center"><b>YouTube Video URL Analysis</b></h1>
+
+        <!-- Error Message -->
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <!-- Video URL Analysis Form -->
+        <form method="POST" class="mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="video_url" class="form-label"><b>Enter YouTube Video URL :</b></label>
+                <input type="text" class="form-control" name="video_url" placeholder="Enter YouTube video URL" required>
+            </div><br>
+            <button type="submit" class="btn btn-primary mt-3"><b>Analyze</b></button>
+        </form>
+    </div>
+
+    <!-- Optional Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
